@@ -24,9 +24,13 @@ pause()
 
 #load the data
 data = readdlm("./ex1data1.txt",',')
-X = data[:,1]
-y = data[:,2]
-m = length(y)
+#add a column of ones to x
+X = [ones(m,1) data[:,1]];
+y = data[:,2];
+m = length(y);
+theta = zeros(2,1);
+
+computeCost(X,y,theta)
 
 #plot the data
 plotData(X, y);
